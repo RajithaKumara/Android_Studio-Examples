@@ -1,0 +1,67 @@
+working
+
+get call through default UI
+snack bar
+Thost msg
+take call status calling  ringing or idle
+request phone call
+handler
+runnable
+scroll activity
+no screen rotate, no screan split
+
+
+
+
+
+
+
+#######
+go to app details:
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, 1);
+        }
+
+
+########
+go to wifi settings:
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+                startActivityForResult(intent, 1);
+        }
+
+
+
+########
+read divice id without permission:
+
+String deviceid = "";
+        TelephonyManager tel=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        deviceid= Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+
+
+
+########
+network operator name show:
+
+TelephonyManager tel=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        String deviceid=tel.getSimOperatorName();
+
+
+
+
+#####
+get dual sim details not working api 26
+
+SubscriptionManager subscriptionManager=(SubscriptionManager)getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+        int subId=subscriptionManager.getActiveSubscriptionInfoCount();
+        //List<SubscriptionInfo> subscriptionInfos=subscriptionManager.getActiveSubscriptionInfoList();
+        //int subId=subscriptionInfos.get(1).getSubscriptionId();
+        //int simPosition=subscriptionInfos.get(1).getSimSlotIndex();
+
+
+
+
